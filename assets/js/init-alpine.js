@@ -8,5 +8,9 @@ function data() {
     showContentButton() {
       this.showContent = true;
     },
+    isSubMenu: false,
+    toggleSubMenu() {
+      this.isSubMenu = !this.isSubMenu;
+    },
   };
 }
