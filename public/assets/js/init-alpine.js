@@ -30,5 +30,13 @@ function data() {
     toggleTopNavPages() {
       this.isTopNavPages = !this.isTopNavPages;
     },
+    isUserPopUp: false,
+    toggleUserPopUp() {
+      this.isUserPopUp = !this.isUserPopUp;
+    },
+    isLanguagePopUp: false,
+    toggleLanguagePopUp() {
+      this.isLanguagePopUp = !this.isLanguagePopUp;
+    },
   };
 }

@@ -27,201 +27,347 @@ Like: www.facebook.com/abhaytalreja.me
 
 <body class="bg-gray-200">
 
-  <!-- HEADER NAV -->
-  <div class="flex flex-grow fixed w-full bg-white h-16 text-center items-center"
-    :class="{'ml-12': hideForMiniMenu(), 'ml-64': showForMiniMenu()}">
-    <div class="h12 flex flex-col">
-      <div class="flex flex-row">
-        <ui class="list-none inline-flex ml-8">
-          <li>
-            <button
-              class="px-5 py-2 text-base h-12 text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold"
-              @click="toggleTopNavPages()">Teams</button>
-            <template x-if="isTopNavPages">
-              <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="absolute top-12 w-64 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
-                <li class="flex">
-                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+  <div id="app" class="flex flex-col flex-1">
+
+    <div class="flex flex-row">
+      <!-- SIDE MENU -->
+      <div class="flex h-screen bg-grey-100 fixed top-0 left-0 z-50">
+        <aside class="hidden overflow-y-auto bg-gray-100 md:block"
+          :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu()}">
+          <div>
+            <div class="text-gray-500 p-2 inline-flex w-full justify-between">
+              <a href="#" x-show="showForMiniMenu()"
+                class="p-3 text-lg font-bold text-brand-dark hover:text-brand-dark text-center inline-flex">
+                <svg class="w-8 h-8 text-brand hover:text-brand-dark" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                </svg>
+                <span class="ml-2 text-xl text-center items-center">TailDash</span>
+              </a>
+              <svg @click="toggleMiniMenu()" x-show="showForMiniMenu()" class="w-6 h-11 hover:text-brand"
+                aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+              </svg>
+              <svg @click="toggleMiniMenu()" x-show="hideForMiniMenu()" class="w-12 h-12 p-1 hover:text-brand"
+                aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+              </svg>
+            </div>
+            <ul class="mt-4" @mouseenter="toggleMiniMenuHover()" @mouseleave="toggleMiniMenuHover()">
+              <li class="relative pl-3 my-2 w-full">
+                <span>
+                  <a class="text-base h-12 text-black inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
                     href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="ml-3 pt-1 text-base">My Account</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                      </path>
+                    </svg> <span class="pl-4 pt-1" x-show="showForMiniMenu()">Dashboard</span>
                   </a>
-                </li>
-                <li class="flex">
-                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                </span>
+              </li>
+              <li class="relative pl-3 my-2 w-full">
+                <span>
+                  <a class="text-base h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
                     href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                    <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                    </svg>
+                    <span class="pl-4 pt-1" x-show="showForMiniMenu()">Pages</span>
+                  </a>
+                </span>
+              </li>
+              <li class="relative pl-3 my-2 w-full">
+                <span>
+                  <a class="text-base h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+                    href="#">
+                    <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                    </svg>
+                    <span class="pl-4 pt-1" x-show="showForMiniMenu()">Charts</span>
+                  </a>
+                </span>
+              </li>
+              <li><button aria-haspopup="true" @click="toggleSubMenu()"
+                  class="inline-flex items-center justify-between pl-3 text-base h-12 text-gray-600 w-full transition-colors duration-150 font-semibold hover:text-brand">
+                  <span class="inline-flex">
+                    <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    </svg> <span class="pl-4" x-show="showForMiniMenu()">More Options</span></span>
+                  <svg class="w-6 h-6 mr-4" x-show="showForMiniMenu() && !isSubMenu" aria-hidden="true"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <svg class="w-6 h-6 mr-4" x-show="showForMiniMenu() && isSubMenu" aria-hidden="true"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </button>
+                <template x-if="isSubMenu && showForMiniMenu()">
+                  <ul>
+                    <li class="relative pl-4 w-full">
+                      <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+                        href="#">
+                        -
+                        <span class="pl-4">Charts</span>
+                      </a>
+                    </li>
+                    <li class="relative pl-4 w-full">
+                      <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+                        href="#">
+                        -
+                        <span class="pl-4">Charts</span>
+                      </a>
+                    </li>
+                    <li class="relative pl-4 w-full">
+                      <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+                        href="#">
+                        -
+                        <span class="pl-4">Charts</span>
+                      </a>
+                    </li>
+                  </ul>
+                </template>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+      <!-- HEADER NAV -->
+      <div class="flex flex-grow fixed top-0 right-0 bg-white h-16 text-center min-w-full pt-2"
+        :class="{'pl-12 left-12': hideForMiniMenu(), 'pl-64 left-64': showForMiniMenu()}">
+        <div class="overflow-auto flex justify-between w-full">
+          <div class="flex flex-row">
+            <ui class="list-none inline-flex ml-8">
+              <li>
+                <button
+                  class="px-5 py-2 text-base h-12 text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold"
+                  @click="toggleTopNavPages()">Teams</button>
+                <template x-if="isTopNavPages">
+                  <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    class="absolute top-12 w-64 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
+                    <li class="flex">
+                      <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="ml-3 pt-1 text-base">My Account</span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="ml-3 pt-1 text-base">Task Manager</span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path
+                            d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                        </svg>
+                        <span class="ml-3 pt-1 text-base">Team Manager</span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                            clip-rule="evenodd" />
+                          <path
+                            d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                        </svg>
+                        <span class="ml-3 pt-1 text-base">Project Manager</span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path
+                            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                        </svg>
+                        <span class="ml-3 pt-1 text-base">Create New Project</span>
+                      </a>
+                    </li>
+                  </ul>
+                </template>
+              </li>
+            </ui>
+          </div>
+          <div class="flex">
+            <div class="flex flex-row">
+              <ui class="list-none inline-flex mr-8">
+                <li>
+                  <button
+                    class="px-5 py-2 text-base h-12 inline-flex text-gray-600 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
+                    @click="toggleLanguagePopUp()">
+                    <img class="w-8 h-8 rounded-md" src="/assets/img/svg/226-united-states.svg" alt="">
+                  </button>
+                  <template x-if="isLanguagePopUp">
+                    <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+                      x-transition:leave-end="opacity-0"
+                      class="absolute top-12 -ml-16 w-142 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
+                      <li class="flex">
+                        <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                          href="#">
+                          <img class="w-6 h-6 rounded-md" src="/assets/img/svg/226-united-states.svg" alt="">
+                          <span class="ml-3 pt-1 text-base">English</span>
+                        </a>
+                      </li>
+                      <li class="flex">
+                        <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                          href="#">
+                          <img class="w-6 h-6 rounded-md" src="/assets/img/svg/128-spain.svg" alt="">
+                          <span class="ml-3 pt-1 text-base">Spanish</span>
+                        </a>
+                      </li>
+                      <li class="flex">
+                        <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                          href="#">
+                          <img class="w-6 h-6 rounded-md" src="/assets/img/svg/162-germany.svg" alt="">
+                          <span class="ml-3 pt-1 text-base">Germany</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </template>
+                </li>
+                <li>
+                  <button
+                    class="px-5 py-2 text-base h-12 inline-flex text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
+                    @click="toggleUserPopUp()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd"
-                        d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
                         clip-rule="evenodd" />
                     </svg>
-                    <span class="ml-3 pt-1 text-base">Task Manager</span>
-                  </a>
+                    <span class="ml-4">Hi <strong>John,</strong></span>
+                  </button>
+                  <template x-if="isUserPopUp">
+                    <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+                      x-transition:leave-end="opacity-0"
+                      class="absolute right-0 mr-8 w-142 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
+                      <li class="flex p-2 mb-4">
+                        <img class="object-cover w-24 h-32 rounded-md"
+                          src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                          alt="" aria-hidden="true" />
+                        <div class="px-4 py-2 text-left">
+                          <div><a href="#" class="text-brand-dark font-bold text-xl hover:text-brand">John Doe</a></div>
+                          <div class="text-gray-400 text-lg">Application Developer</div>
+                          <div class="text-gray-400 text-base hover:text-brand inline-flex justify-between">
+                            <span class="pr-2">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-brand" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                              </svg>
+                            </span>
+                            john@awesome.com
+                          </div>
+                          <div class="block">
+                            <a href="#" class="bg-gray-200 text-brand-dark text-sm inline-flex px-4 py-2 rounded-md">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                  d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+                                  clip-rule="evenodd" />
+                              </svg>
+                              Sign Out
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="flex">
+                        <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                          href="#">
+                          <span class="bg-gray-200 w-16 h-16 p-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20"
+                              fill="currentColor">
+                              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                clip-rule="evenodd" />
+                            </svg>
+                          </span>
+                          <div class="ml-3 pt-1 text-base text-left">
+                            <div>Profile</div>
+                            <div class="text-gray-400 text-sm">Account
+                              Settings and more</div>
+                          </div>
+                        </a>
+                      </li>
+                      <li class="flex">
+                        <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                          href="#">
+                          <span class="bg-gray-200 w-16 h-16 p-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20"
+                              fill="currentColor">
+                              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                clip-rule="evenodd" />
+                            </svg>
+                          </span>
+                          <div class="ml-3 pt-1 text-base text-left">
+                            <div>My Messages</div>
+                            <div class="text-gray-400 text-sm">Inbox and Tasks</div>
+                          </div>
+                        </a>
+                      </li>
+                      <li class="flex">
+                        <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                          href="#">
+                          <span class="bg-gray-200 w-16 h-16 p-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20"
+                              fill="currentColor">
+                              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                clip-rule="evenodd" />
+                            </svg>
+                          </span>
+                          <div class="ml-3 pt-1 text-base text-left">
+                            <div>My Activities</div>
+                            <div class="text-gray-400 text-sm">Logs, Notifications and todos</div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </template>
                 </li>
-                <li class="flex">
-                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                    href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path
-                        d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                    </svg>
-                    <span class="ml-3 pt-1 text-base">Team Manager</span>
-                  </a>
-                </li>
-                <li class="flex">
-                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                    href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd"
-                        d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
-                        clip-rule="evenodd" />
-                      <path
-                        d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-                    </svg>
-                    <span class="ml-3 pt-1 text-base">Project Manager</span>
-                  </a>
-                </li>
-                <li class="flex">
-                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                    href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path
-                        d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                    </svg>
-                    <span class="ml-3 pt-1 text-base">Create New Project</span>
-                  </a>
-                </li>
-              </ul>
-            </template>
-          </li>
-        </ui>
+              </ui>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- SIDE MENU -->
-  <div class="flex h-screen bg-grey-100 flex-shrink-0">
-    <aside class="hidden overflow-y-auto bg-gray-100 md:block"
-      :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu()}">
-      <div>
-        <div class="text-gray-500 p-2 inline-flex w-full justify-between">
-          <a href="#" x-show="showForMiniMenu()"
-            class="p-3 text-lg font-bold text-brand-dark hover:text-brand-dark text-center inline-flex">
-            <svg class="w-8 h-8 text-brand hover:text-brand-dark" xmlns="http://www.w3.org/2000/svg" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-            </svg>
-            <span class="ml-2 text-xl text-center items-center">TailDash</span>
-          </a>
-          <svg @click="toggleMiniMenu()" x-show="showForMiniMenu()" class="w-6 h-11 hover:text-brand" aria-hidden="true"
-            fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
-          </svg>
-          <svg @click="toggleMiniMenu()" x-show="hideForMiniMenu()" class="w-12 h-12 p-1 hover:text-brand"
-            aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-          </svg>
-        </div>
-        <ul class="mt-4" @mouseenter="toggleMiniMenuHover()" @mouseleave="toggleMiniMenuHover()">
-          <li class="relative pl-3 my-2 w-full">
-            <span>
-              <a class="text-base h-12 text-black inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
-                href="#">
-                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                  </path>
-                </svg> <span class="pl-4 pt-1" x-show="showForMiniMenu()">Dashboard</span>
-              </a>
-            </span>
-          </li>
-          <li class="relative pl-3 my-2 w-full">
-            <span>
-              <a class="text-base h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
-                href="#">
-                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-                </svg>
-                <span class="pl-4 pt-1" x-show="showForMiniMenu()">Pages</span>
-              </a>
-            </span>
-          </li>
-          <li class="relative pl-3 my-2 w-full">
-            <span>
-              <a class="text-base h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
-                href="#">
-                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
-                </svg>
-                <span class="pl-4 pt-1" x-show="showForMiniMenu()">Charts</span>
-              </a>
-            </span>
-          </li>
-          <li><button aria-haspopup="true" @click="toggleSubMenu()"
-              class="inline-flex items-center justify-between pl-3 text-base h-12 text-gray-600 w-full transition-colors duration-150 font-semibold hover:text-brand">
-              <span class="inline-flex">
-                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg> <span class="pl-4" x-show="showForMiniMenu()">More Options</span></span>
-              <svg class="w-6 h-6 mr-4" x-show="showForMiniMenu() && !isSubMenu" aria-hidden="true" fill="currentColor"
-                viewBox="0 0 20 20">
-                <path fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
-              </svg>
-              <svg class="w-6 h-6 mr-4" x-show="showForMiniMenu() && isSubMenu" aria-hidden="true" fill="currentColor"
-                viewBox="0 0 20 20">
-                <path fill-rule="evenodd"
-                  d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
-                  clip-rule="evenodd" />
-              </svg>
-            </button>
-            <template x-if="isSubMenu && showForMiniMenu()">
-              <ul>
-                <li class="relative pl-4 w-full">
-                  <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
-                    href="#">
-                    -
-                    <span class="pl-4">Charts</span>
-                  </a>
-                </li>
-                <li class="relative pl-4 w-full">
-                  <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
-                    href="#">
-                    -
-                    <span class="pl-4">Charts</span>
-                  </a>
-                </li>
-                <li class="relative pl-4 w-full">
-                  <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
-                    href="#">
-                    -
-                    <span class="pl-4">Charts</span>
-                  </a>
-                </li>
-              </ul>
-            </template>
-          </li>
-        </ul>
-      </div>
-    </aside>
-  </div>
+
+
+
 
 </body>
 
