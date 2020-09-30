@@ -29,9 +29,9 @@ module.exports = {
       white: "#ffffff",
       black: "#212121",
 
-      "brand-light": "#e9f2f1",
-      brand: "#a8cdc7",
-      "brand-dark": "#51615f",
+      "brand-light": "#F0B7A4",
+      brand: "#F18C8E",
+      "brand-dark": "#305F72",
 
       "cta-light": "#f3e9ef",
       cta: "#cda8c1",
