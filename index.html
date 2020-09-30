@@ -28,91 +28,112 @@ Like: www.facebook.com/abhaytalreja.me
 <body class="bg-gray-200">
   <!-- SIDE MENU -->
   <div class="flex h-screen bg-grey-100 flex-shrink-0">
-    <aside class="w-64 hidden overflow-y-auto bg-gray-100 md:block">
-      <div class="text-gray-500 p-2">
-        <a href="#"
-          class="m-5 text-lg font-bold text-brand-dark hover:text-brand-dark text-center inline-flex items-center w-full">
-          <svg class="w-8 h-8 text-brand hover:text-brand-dark" xmlns="http://www.w3.org/2000/svg" fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+    <aside class="hidden overflow-y-auto bg-gray-100 md:block"
+      :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu()}" @mouseenter="toggleMiniMenuHover()"
+      @mouseleave="toggleMiniMenuHover()">
+      <div>
+        <div class="text-gray-500 p-2 inline-flex w-full justify-between">
+          <a href="#" x-show="showForMiniMenu()"
+            class="p-3 text-lg font-bold text-brand-dark hover:text-brand-dark text-center inline-flex">
+            <svg class="w-8 h-8 text-brand hover:text-brand-dark" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+            </svg>
+            <span class="ml-2 text-xl text-center items-center">TailDash</span>
+          </a>
+          <svg @click="toggleMiniMenu()" x-show="showForMiniMenu()" class="w-6 h-11 hover:text-brand" aria-hidden="true"
+            fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
           </svg>
-          <span class="ml-2 text-xl">TailDash</span>
-        </a>
+          <svg @click="toggleMiniMenu()" x-show="hideForMiniMenu()" class="w-12 h-12 p-1 hover:text-brand"
+            aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+          </svg>
+        </div>
         <ul class="mt-4">
-          <li class="relative pl-2 my-2 w-full">
+          <li class="relative pl-3 my-2 w-full">
             <span>
-              <a class="text-sm h-12 text-black inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+              <a class="text-base h-12 text-black inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
                 href="#">
-                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
                   </path>
-                </svg> <span class="pl-4 pt-1">Dashboard</span>
+                </svg> <span class="pl-4 pt-1" x-show="showForMiniMenu()">Dashboard</span>
               </a>
             </span>
           </li>
-          <li class="relative pl-2 my-2 w-full">
+          <li class="relative pl-3 my-2 w-full">
             <span>
-              <a class="text-sm h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+              <a class="text-base h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
                 href="#">
-                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                 </svg>
-                <span class="pl-4 pt-1">Pages</span>
+                <span class="pl-4 pt-1" x-show="showForMiniMenu()">Pages</span>
               </a>
             </span>
           </li>
-          <li class="relative pl-2 my-2 w-full">
+          <li class="relative pl-3 my-2 w-full">
             <span>
-              <a class="text-sm h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+              <a class="text-base h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
                 href="#">
-                <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
                 </svg>
-                <span class="pl-4 pt-1">Charts</span>
+                <span class="pl-4 pt-1" x-show="showForMiniMenu()">Charts</span>
               </a>
             </span>
           </li>
           <li><button aria-haspopup="true" @click="toggleSubMenu()"
-              class="inline-flex items-center  pl-2 my-2 text-sm h-12 text-gray-600 w-full transition-colors duration-150 font-semibold hover:text-brand">
-              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-              </svg>
-              <span class="pl-4">More Options</span>
-              <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+              class="inline-flex items-center justify-between pl-3 text-base h-12 text-gray-600 w-full transition-colors duration-150 font-semibold hover:text-brand">
+              <span class="inline-flex " x-show="showForMiniMenu()">
+                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg> <span class="pl-4">More Options</span></span>
+              <svg class="w-6 h-6 mr-4" x-show="showForMiniMenu() && !isSubMenu" aria-hidden="true" fill="currentColor"
+                viewBox="0 0 20 20">
                 <path fill-rule="evenodd"
                   d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                   clip-rule="evenodd"></path>
+              </svg>
+              <svg class="w-6 h-6 mr-4" x-show="showForMiniMenu() && isSubMenu" aria-hidden="true" fill="currentColor"
+                viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                  clip-rule="evenodd" />
               </svg>
             </button>
             <template x-if="isSubMenu">
               <ul>
                 <li class="relative pl-4 w-full">
-                  <a class="text-sm h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+                  <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
                     href="#">
                     -
                     <span class="pl-4">Charts</span>
                   </a>
                 </li>
                 <li class="relative pl-4 w-full">
-                  <a class="text-sm h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+                  <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
                     href="#">
                     -
                     <span class="pl-4">Charts</span>
                   </a>
                 </li>
                 <li class="relative pl-4 w-full">
-                  <a class="text-sm h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+                  <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
                     href="#">
                     -
                     <span class="pl-4">Charts</span>
