@@ -1,3 +1,5 @@
+This project creates a dashboard using Tailwind CSS. The project was started using the <a href="https://github.com/tailwindlabs/tailwindcss-playground">TailwindCSS Playground</a>
+
 # Tailwind CSS Playground
 
 A simple starter project for playing around with Tailwind in a proper PostCSS environment.
