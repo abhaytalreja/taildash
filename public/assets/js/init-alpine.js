@@ -12,5 +12,19 @@ function data() {
     toggleSubMenu() {
       this.isSubMenu = !this.isSubMenu;
     },
+    isMiniMenu: false,
+    toggleMiniMenu() {
+      this.isMiniMenu = !this.isMiniMenu;
+    },
+    isMiniMenuHover: false,
+    toggleMiniMenuHover() {
+      this.isMiniMenuHover = !this.isMiniMenuHover;
+    },
+    showForMiniMenu() {
+      return !this.isMiniMenu || this.isMiniMenuHover;
+    },
+    hideForMiniMenu() {
+      return this.isMiniMenu && !this.isMiniMenuHover;
+    },
   };
 }
