@@ -26,6 +26,83 @@ Like: www.facebook.com/abhaytalreja.me
 </head>
 
 <body class="bg-gray-200">
+
+  <!-- HEADER NAV -->
+  <div class="flex flex-grow fixed w-full bg-white h-16 text-center items-center"
+    :class="{'ml-12': hideForMiniMenu(), 'ml-64': showForMiniMenu()}">
+    <div class="h12 flex flex-col">
+      <div class="flex flex-row">
+        <ui class="list-none inline-flex ml-8">
+          <li>
+            <button
+              class="px-5 py-2 text-base h-12 text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold"
+              @click="toggleTopNavPages()">Teams</button>
+            <template x-if="isTopNavPages">
+              <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="absolute top-12 w-64 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
+                <li class="flex">
+                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <span class="ml-3 pt-1 text-base">My Account</span>
+                  </a>
+                </li>
+                <li class="flex">
+                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z"
+                        clip-rule="evenodd" />
+                    </svg>
+                    <span class="ml-3 pt-1 text-base">Task Manager</span>
+                  </a>
+                </li>
+                <li class="flex">
+                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path
+                        d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                    </svg>
+                    <span class="ml-3 pt-1 text-base">Team Manager</span>
+                  </a>
+                </li>
+                <li class="flex">
+                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                        clip-rule="evenodd" />
+                      <path
+                        d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                    </svg>
+                    <span class="ml-3 pt-1 text-base">Project Manager</span>
+                  </a>
+                </li>
+                <li class="flex">
+                  <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                    href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path
+                        d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                    </svg>
+                    <span class="ml-3 pt-1 text-base">Create New Project</span>
+                  </a>
+                </li>
+              </ul>
+            </template>
+          </li>
+        </ui>
+      </div>
+    </div>
+  </div>
+
   <!-- SIDE MENU -->
   <div class="flex h-screen bg-grey-100 flex-shrink-0">
     <aside class="hidden overflow-y-auto bg-gray-100 md:block"
@@ -145,6 +222,7 @@ Like: www.facebook.com/abhaytalreja.me
       </div>
     </aside>
   </div>
+
 </body>
 
 </html>

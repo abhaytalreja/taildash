@@ -26,5 +26,9 @@ function data() {
     hideForMiniMenu() {
       return this.isMiniMenu && !this.isMiniMenuHover;
     },
+    isTopNavPages: false,
+    toggleTopNavPages() {
+      this.isTopNavPages = !this.isTopNavPages;
+    },
   };
 }
