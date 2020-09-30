@@ -29,8 +29,7 @@ Like: www.facebook.com/abhaytalreja.me
   <!-- SIDE MENU -->
   <div class="flex h-screen bg-grey-100 flex-shrink-0">
     <aside class="hidden overflow-y-auto bg-gray-100 md:block"
-      :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu()}" @mouseenter="toggleMiniMenuHover()"
-      @mouseleave="toggleMiniMenuHover()">
+      :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu()}">
       <div>
         <div class="text-gray-500 p-2 inline-flex w-full justify-between">
           <a href="#" x-show="showForMiniMenu()"
@@ -53,7 +52,7 @@ Like: www.facebook.com/abhaytalreja.me
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
           </svg>
         </div>
-        <ul class="mt-4">
+        <ul class="mt-4" @mouseenter="toggleMiniMenuHover()" @mouseleave="toggleMiniMenuHover()">
           <li class="relative pl-3 my-2 w-full">
             <span>
               <a class="text-base h-12 text-black inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
@@ -97,12 +96,12 @@ Like: www.facebook.com/abhaytalreja.me
           </li>
           <li><button aria-haspopup="true" @click="toggleSubMenu()"
               class="inline-flex items-center justify-between pl-3 text-base h-12 text-gray-600 w-full transition-colors duration-150 font-semibold hover:text-brand">
-              <span class="inline-flex " x-show="showForMiniMenu()">
+              <span class="inline-flex">
                 <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg> <span class="pl-4">More Options</span></span>
+                </svg> <span class="pl-4" x-show="showForMiniMenu()">More Options</span></span>
               <svg class="w-6 h-6 mr-4" x-show="showForMiniMenu() && !isSubMenu" aria-hidden="true" fill="currentColor"
                 viewBox="0 0 20 20">
                 <path fill-rule="evenodd"
@@ -116,7 +115,7 @@ Like: www.facebook.com/abhaytalreja.me
                   clip-rule="evenodd" />
               </svg>
             </button>
-            <template x-if="isSubMenu">
+            <template x-if="isSubMenu && showForMiniMenu()">
               <ul>
                 <li class="relative pl-4 w-full">
                   <a class="text-base h-10 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
