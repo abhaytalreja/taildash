@@ -1,5 +1,15 @@
 <!doctype html>
-<html lang="en">
+<!-- 
+Template Name: TailDash
+Version: 0.0.1
+Author: Abhay Talreja
+Website: http://www.abhaytalreja.me/
+Follow: www.twitter.com/abhaytalreja
+Like: www.facebook.com/abhaytalreja.me
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<html lang="en" x-data="data()">
 
 <head>
   <meta charset="utf-8">
@@ -8,12 +18,16 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="stylesheet" href="/build/tailwind.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <title>TailDash</title>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"></script>
+  <script src="./assets/js/init-alpine.js"></script>
+  <title>TailDash | Tailwind Dashboard</title>
+  <meta content="" name="description" />
+  <meta content="" name="author" />
 </head>
 
-<body class="antialiased">
-  <div class="relative max-w-5xl mx-auto">
-  </div>
+<body>
+  <button x-show="!showContent" @click="showContentButton()">Show Content</button>
+  <button x-show="showContent" @click="hideContentButton()">Hide Content</button>
 </body>
 
 </html>
