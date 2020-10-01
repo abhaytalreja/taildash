@@ -406,8 +406,29 @@ Like: www.facebook.com/abhaytalreja.me
         </div>
       </div>
 
-      <div class="mt-16 px-4" :class="{'md:pl-12': hideForMiniMenu(), 'md:pl-64': showForMiniMenu()}">
-        All the content will go here
+      <!-- MAIN CONTENT -->
+      <div class="mt-16 w-full" :class="{'md:pl-12': hideForMiniMenu(), 'md:pl-64': showForMiniMenu()}">
+        <div class="w-full text-center">All the content will go here</div>
+        <!-- TABLE -->
+        <!--
+          Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+          Read the documentation to get started: https://tailwindui.com/documentation
+        -->
+        <div class="flex flex-col bg-white">
+          <div class="flex flex-row">
+            <div class="flex-1 m-2 h-12 bg-gray-300">Col 1</div>
+            <div class="flex-1 m-2 h-12 bg-gray-300">Col 2</div>
+            <div class="flex-1 m-2 h-12 bg-gray-300">Col 3</div>
+          </div>
+          <div class="flex flex-row">
+            <div class="flex-1 m-2 h-12 bg-gray-300">Col 1</div>
+            <div class="flex-1 m-2 h-12 bg-gray-300">Col 2</div>
+          </div>
+          <div class="flex flex-row">
+            <div class="flex-1 m-2 h-12 bg-gray-300">Col 1</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
