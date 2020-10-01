@@ -244,7 +244,7 @@ Like: www.facebook.com/abhaytalreja.me
               <ui class="list-none inline-flex mr-8">
                 <li>
                   <button
-                    class="w-16 px-3 py-2 text-base h-12 inline-flex text-gray-600 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
+                    class="w-16 px-3 py-2 sm:px-1 text-base h-12 inline-flex text-gray-600 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
                     @click="toggleLanguagePopUp()" @click.away=" hideLanguagePopUp()"
                     @keydown.escape="hideLanguagePopUp()">
                     <img class="w-8 h-8 rounded-md" src="/assets/img/svg/226-united-states.svg" alt="">
@@ -279,14 +279,15 @@ Like: www.facebook.com/abhaytalreja.me
                 </li>
                 <li>
                   <button
-                    class="p-3 text-base h-12 inline-flex text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
+                    class="p-1 text-base h-12 inline-flex text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
                     @click="toggleUserPopUp()" @click.away=" hideUserPopUp()" @keydown.escape="hideUserPopUp()">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="m-auto md:w-6 md:h-6 w-8 h-8" viewBox="0 0 20 20"
+                      fill="currentColor">
                       <path fill-rule="evenodd"
                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
                         clip-rule="evenodd" />
                     </svg>
-                    <span class="ml-2"><strong>John</strong></span>
+                    <span class="ml-2 hidden md:block"><strong>John</strong></span>
                   </button>
                   <template x-if="isUserPopUp">
                     <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
