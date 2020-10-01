@@ -414,18 +414,187 @@ Like: www.facebook.com/abhaytalreja.me
           Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
           Read the documentation to get started: https://tailwindui.com/documentation
         -->
-        <div class="flex flex-col bg-white">
+        <div class="flex flex-col">
           <div class="flex flex-row">
-            <div class="flex-1 m-2 h-12 bg-gray-300">Col 1</div>
-            <div class="flex-1 m-2 h-12 bg-gray-300">Col 2</div>
-            <div class="flex-1 m-2 h-12 bg-gray-300">Col 3</div>
+            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 1</div>
+            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 2</div>
+            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 3</div>
           </div>
           <div class="flex flex-row">
-            <div class="flex-1 m-2 h-12 bg-gray-300">Col 1</div>
-            <div class="flex-1 m-2 h-12 bg-gray-300">Col 2</div>
+            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 1</div>
+            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 2</div>
           </div>
           <div class="flex flex-row">
-            <div class="flex-1 m-2 h-12 bg-gray-300">Col 1</div>
+            <div class="flex-1 m-2 bg-white rounded-md p-2">
+              <div class="p-4">
+                <h3 class="text-brand-dark text-lg font-bold">Agent Stats</h3>
+                <span class="text-gray-500">More than 400+ new members</span>
+              </div>
+              <div class="shadow overflow-hidden border-b border-gray-300 sm:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead>
+                    <tr>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Products
+                      </th>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Earnings
+                      </th>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Commision
+                      </th>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Status
+                      </th>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        Rating
+                      </th>
+                      <th class="px-6 py-3 bg-gray-50"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
+                              alt="">
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm leading-5 font-medium text-gray-900">
+                              Jane Cooper
+                            </div>
+                            <div class="text-sm leading-5 text-gray-500">
+                              Regional Paradigm Technician
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900">$12,000</div>
+                        <div class="text-sm leading-5 text-gray-500">Paid</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900">$520</div>
+                        <div class="text-sm leading-5 text-gray-500">Paid</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <span
+                          class="px-2 inline-flex text-sm leading-5 font-semibold rounded-full bg-green-200 text-green-800">
+                          Active
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900 inline-flex">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        </div>
+                        <div class="text-sm leading-5 text-gray-500">Best Rated</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">View</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="flex items-center">
+                          <div class="flex-shrink-0 h-10 w-10">
+                            <img class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                              alt="">
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm leading-5 font-medium text-gray-900">
+                              Cody Fisher
+                            </div>
+                            <div class="text-sm leading-5 text-gray-500">
+                              Product Directives Officer
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900">$80,000</div>
+                        <div class="text-sm leading-5 text-gray-500">Pending</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900">$1,600</div>
+                        <div class="text-sm leading-5 text-gray-500">Rejected</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <span
+                          class="px-4 inline-flex text-sm leading-5 font-semibold rounded-full bg-red-200 text-red-800">
+                          Inactive
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap">
+                        <div class="text-sm leading-5 text-gray-900 inline-flex">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-300" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        </div>
+                        <div class="text-sm leading-5 text-gray-500">Above Average</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">View</a>
+                      </td>
+                    </tr>
+                    <!-- More rows... -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
 
