@@ -44,7 +44,7 @@ Like: www.facebook.com/abhaytalreja.me
           @click.away="closeSideMenu" @keydown.escape="closeSideMenu">
           <div>
             <div class="text-gray-500 p-2 inline-flex w-full justify-between">
-              <a href="#" x-show="showForMiniMenu()"
+              <a href="/" x-show="showForMiniMenu()"
                 class="p-3 text-lg font-bold text-brand-dark hover:text-brand-dark text-center inline-flex">
                 <svg class="w-8 h-8 text-brand hover:text-brand-dark" xmlns="http://www.w3.org/2000/svg" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor">
@@ -69,13 +69,26 @@ Like: www.facebook.com/abhaytalreja.me
               <li class="relative pl-3 my-2 w-full">
                 <span>
                   <a class="text-base h-12 text-black inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
-                    href="#">
+                    href="/">
                     <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
                       stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                       <path
                         d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
                       </path>
                     </svg> <span class="pl-4 pt-1" x-show="showForMiniMenu()">Dashboard</span>
+                  </a>
+                </span>
+              </li>
+              <li class="relative pl-3 my-2 w-full">
+                <span>
+                  <a class="text-base h-12 text-gray-600 inline-flex items-center w-full transition-colors duration-150 font-semibold hover:text-brand"
+                    href="/pages/tables.html" @click="closeSideMenu()">
+                    <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    <span class="pl-4 pt-1" x-show="showForMiniMenu()">Tables</span>
                   </a>
                 </span>
               </li>
