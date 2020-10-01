@@ -20,6 +20,9 @@ Like: www.facebook.com/abhaytalreja.me
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"></script>
   <script src="./assets/js/init-alpine.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+
   <title>TailDash | Tailwind Dashboard</title>
   <meta content="" name="description" />
   <meta content="" name="author" />
@@ -172,7 +175,7 @@ Like: www.facebook.com/abhaytalreja.me
         </aside>
       </div>
       <!-- HEADER NAV -->
-      <div class="flex flex-grow fixed top-0 right-0 bg-white h-16 text-center min-w-full pt-2"
+      <div class="flex flex-grow fixed top-0 right-0 bg-white h-16 text-center min-w-full pt-2 z-10"
         :class="{'md:pl-12 md:left-12': hideForMiniMenu(), 'md:pl-64 md:left-64': showForMiniMenu()}">
         <div class="overflow-auto flex justify-between w-full">
           <div class="flex flex-row">
@@ -422,20 +425,295 @@ Like: www.facebook.com/abhaytalreja.me
       <!-- MAIN CONTENT -->
       <div class="mt-16 w-full" :class="{'md:pl-12': hideForMiniMenu(), 'md:pl-64': showForMiniMenu()}">
         <div class="w-full text-center">All the content will go here</div>
-        <!-- TABLE -->
-        <!--
-          Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-          Read the documentation to get started: https://tailwindui.com/documentation
-        -->
-        <div class="flex flex-col">
+        <div class="flex flex-col flex-wrap p-5">
           <div class="flex flex-row">
-            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 1</div>
-            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 2</div>
-            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 3</div>
+            <div class="m-3 bg-white rounded-md p-2">
+              <div class="flex flex-col mb-4 px-4">
+                <h3 class="text-brand-dark text-lg font-bold">Weekly Commissions</h3>
+                <span class="text-gray-700 text-sm">by Most Sales in a Week</span>
+              </div>
+              <div class="relative" style="height:300px">
+                <canvas id="bar-chart"></canvas>
+              </div>
+            </div>
+            <div class="m-3 bg-gray-800 text-white rounded-md p-2">
+              <div class="flex flex-col mb-4 px-4">
+                <h3 class="text-lg font-bold">Sales By Month</h3>
+                <span class="text-sm">by Most Productive Month</span>
+              </div>
+              <div class="relative bg-gray-800 p-2 rounded-md" style="height:300px">
+                <canvas id="line-chart"></canvas>
+              </div>
+            </div>
+            <div class="flex-1 m-2 bg-white rounded-md p-8">
+              <div class="flex flex-row justify-between">
+                <div class="flex flex-col">
+                  <h3 class="text-brand-dark text-lg font-bold">Tasks Overviewd</h3>
+                  <span class="text-gray-500">Pending 10 tasks</span>
+                </div>
+                <button
+                  class="text-gray-500 hover:text-gray-600 transition-colors duration-200 focus:outline-none hover:outline-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                  </svg>
+                </button>
+              </div>
+              <div class="flex">
+                <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+                  x-transition:leave-end="opacity-0" class="p-2 mt-2 space-y-2 text-gray-600">
+                  <li class="flex">
+                    <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                      href="#">
+                      <span class="bg-blue-100 w-16 h-16 p-3 rounded-md text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 20 20"
+                          fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                            clip-rule="evenodd" />
+                          <path
+                            d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                        </svg>
+                      </span>
+                      <div class="ml-6 pl-2 pt-1 text-base text-left">
+                        <div>Project Briefing</div>
+                        <div class="text-gray-400 text-sm">Project Manager</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="flex">
+                    <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                      href="#">
+                      <span class="bg-blue-100 w-16 h-16 p-5 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                      <div class="ml-6 pl-2 pt-1 text-base text-left">
+                        <div>Concept Design</div>
+                        <div class="text-gray-400 text-sm">Art Director</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="flex">
+                    <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                      href="#">
+                      <span class="bg-blue-100 w-16 h-16 p-5 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                      <div class="ml-6 pl-2 pt-1 text-base text-left">
+                        <div>Functional Logics</div>
+                        <div class="text-gray-400 text-sm">Lead Developer</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="flex">
+                    <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                      href="#">
+                      <span class="bg-blue-100 w-16 h-16 p-5 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                      <div class="ml-6 pl-2 pt-1 text-base text-left">
+                        <div>Development</div>
+                        <div class="text-gray-400 text-sm">DevOps</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="flex">
+                    <a class="inline-flex items-center w-full px-2 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-brand dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                      href="#">
+                      <span class="bg-blue-100 w-16 h-16 p-5 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                      <div class="ml-6 pl-2 pt-1 text-base text-left">
+                        <div>Testing</div>
+                        <div class="text-gray-400 text-sm">QA Managers</div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="flex flex-row">
-            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 1</div>
-            <div class="flex-1 m-2 h-12 bg-white rounded-md p-2">Col 2</div>
+            <div class="flex-1 m-2 bg-white rounded-md p-2">
+              <div class="flex flex-row justify-between">
+                <h3 class="text-brand-dark text-lg font-bold">Social Traffic</h3>
+                <button
+                  class="text-gray-500 hover:text-gray-600 transition-colors duration-200 focus:outline-none hover:outline-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                  </svg>
+                </button>
+              </div>
+              <div class="relative">
+                <table class="items-center w-full bg-transparent border-collapse">
+                  <thead class="thead-light">
+                    <tr>
+                      <th
+                        class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
+                        Referral
+                      </th>
+                      <th
+                        class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
+                        Visitors
+                      </th>
+                      <th
+                        class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+                        style="min-width:140px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
+                        Facebook
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        1,480
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">60%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
+                              <div style="width:60%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
+                        Facebook
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        5,480
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">70%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-green-200">
+                              <div style="width:70%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
+                        Medium
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        2,980
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">60%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-200">
+                              <div style="width:70%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
+                        Google
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        4,807
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">80%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-purple-200">
+                              <div style="width:80%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
+                        Instagram
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        3,678
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">75%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-blue-200">
+                              <div style="width:75%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
+                        twitter
+                      </th>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        2,645
+                      </td>
+                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        <div class="flex items-center">
+                          <span class="mr-2">30%</span>
+                          <div class="relative w-full">
+                            <div class="overflow-hidden h-2 text-xs flex rounded bg-orange-200">
+                              <div style="width:30%"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="flex-1 m-3 bg-white rounded-md p-2">
+              <div class="flex flex-col mb-4 px-4">
+                <h3 class="text-brand-dark text-lg font-bold">Revenue</h3>
+                <span class="text-gray-700 text-sm">categorized by products (interactive)</span>
+              </div>
+              <div class="relative p-2 rounded-md">
+                <canvas id="dognut-chart" class="h-full"></canvas>
+              </div>
+            </div>
           </div>
           <div class="flex flex-row">
             <div class="flex-1 m-2 bg-white rounded-md p-8">
@@ -824,6 +1102,8 @@ Like: www.facebook.com/abhaytalreja.me
       </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" charset="utf-8"></script>
+  <script src="./assets/js/chart.js"></script>
 </body>
 
 </html>
