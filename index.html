@@ -40,8 +40,7 @@ Like: www.facebook.com/abhaytalreja.me
       <!-- SIDE MENU -->
       <div class="flex h-screen bg-grey-100 fixed top-0 left-0 z-50">
         <aside class="overflow-y-auto bg-gray-100 md:block"
-          :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu() || isSideMenu, 'hidden': !isSideMenu }"
-          @click.away=" toggleSideMenu()" @keydown.escape="toggleSideMenu()">
+          :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu() || isSideMenu, 'hidden': !isSideMenu }">
           <div>
             <div class="text-gray-500 p-2 inline-flex w-full justify-between">
               <a href="#" x-show="showForMiniMenu()"
@@ -173,7 +172,7 @@ Like: www.facebook.com/abhaytalreja.me
             <ui class="list-none inline-flex ml-8">
               <li>
                 <button
-                  class="px-5 py-2 text-base h-12 text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold"
+                  class="px-2 m-auto text-base h-12 text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold"
                   @click="toggleTopNavPages()" @click.away=" hideTopNavPages()"
                   @keydown.escape="hideTopNavPages()">Teams</button>
                 <template x-if="isTopNavPages">
@@ -279,7 +278,7 @@ Like: www.facebook.com/abhaytalreja.me
                 </li>
                 <li>
                   <button
-                    class="p-1 text-base h-12 inline-flex text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
+                    class="p-2 text-base h-12 inline-flex text-gray-600 bg-gray-200 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
                     @click="toggleUserPopUp()" @click.away=" hideUserPopUp()" @keydown.escape="hideUserPopUp()">
                     <svg xmlns="http://www.w3.org/2000/svg" class="m-auto md:w-6 md:h-6 w-8 h-8" viewBox="0 0 20 20"
                       fill="currentColor">
@@ -287,7 +286,7 @@ Like: www.facebook.com/abhaytalreja.me
                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
                         clip-rule="evenodd" />
                     </svg>
-                    <span class="ml-2 hidden md:block"><strong>John</strong></span>
+                    <span class="m-auto px-2 hidden md:block"><strong>John</strong></span>
                   </button>
                   <template x-if="isUserPopUp">
                     <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
@@ -381,7 +380,7 @@ Like: www.facebook.com/abhaytalreja.me
         </div>
       </div>
 
-      <div class="mt-16 px-4" :class="{'pl-12': hideForMiniMenu(), 'pl-64': showForMiniMenu()}">
+      <div class="mt-16 px-4" :class="{'md:pl-12': hideForMiniMenu(), 'md:pl-64': showForMiniMenu()}">
         All the content will go here
       </div>
     </div>

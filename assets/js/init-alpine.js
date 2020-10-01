@@ -48,8 +48,8 @@ function data() {
       this.isLanguagePopUp = false;
     },
     isSideMenu: false,
-    toggleSideMenu() {
-      this.isSideMenu = !this.isSideMenu;
+    closeSideMenu() {
+      this.isSideMenu = false;
     },
   };
 }
