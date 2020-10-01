@@ -51,5 +51,15 @@ function data() {
     closeSideMenu() {
       this.isSideMenu = false;
     },
+    openSideMenu() {
+      this.isSideMenu = true;
+    },
+    isSearchPopup: false,
+    hideSearchPopup() {
+      this.isSearchPopup = false;
+    },
+    showSearchPopup() {
+      this.isSearchPopup = true;
+    },
   };
 }

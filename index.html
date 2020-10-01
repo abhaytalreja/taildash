@@ -40,7 +40,8 @@ Like: www.facebook.com/abhaytalreja.me
       <!-- SIDE MENU -->
       <div class="flex h-screen bg-grey-100 fixed top-0 left-0 z-50">
         <aside class="overflow-y-auto bg-gray-100 md:block"
-          :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu() || isSideMenu, 'hidden': !isSideMenu }">
+          :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu() || isSideMenu, 'hidden': !isSideMenu }"
+          @click.away="closeSideMenu" @keydown.escape="closeSideMenu">
           <div>
             <div class="text-gray-500 p-2 inline-flex w-full justify-between">
               <a href="#" x-show="showForMiniMenu()"
@@ -162,7 +163,7 @@ Like: www.facebook.com/abhaytalreja.me
         :class="{'md:pl-12 md:left-12': hideForMiniMenu(), 'md:pl-64 md:left-64': showForMiniMenu()}">
         <div class="overflow-auto flex justify-between w-full">
           <div class="flex flex-row">
-            <button class="px-4 py-2 h-12 inline-flex text-center bg-gray-200 md:hidden" @click="toggleSideMenu()">
+            <button class="px-4 py-2 h-12 inline-flex text-center bg-gray-200 md:hidden" @click="openSideMenu()">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd"
                   d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -244,6 +245,30 @@ Like: www.facebook.com/abhaytalreja.me
                 <li>
                   <button
                     class="w-16 px-3 py-2 sm:px-1 text-base h-12 inline-flex text-gray-600 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
+                    @click="showSearchPopup()" @keydown.escape="hideSearchPopup()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd"
+                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                  <template x-if="isSearchPopup">
+                    <form x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+                      x-transition:leave-end="opacity-0" @click.away="hideSearchPopup()"
+                      class="absolute inline-flex top-16 -ml-48 w-64 p-2 mt-12 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 m-auto text-gray-300 px-2"
+                        viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                          clip-rule="evenodd" />
+                      </svg>
+                      <input placeholder="Search" class="w-full h-12 px-2 py-1 mr-2 outline-none" />
+                    </form>
+                  </template>
+                </li>
+                <li>
+                  <button
+                    class="w-16 px-3 py-2 sm:px-1 text-base h-12 inline-flex text-gray-600 rounded-md transition-colors duration-150 font-semibold active:outline-none focus:outline-none"
                     @click="toggleLanguagePopUp()" @click.away=" hideLanguagePopUp()"
                     @keydown.escape="hideLanguagePopUp()">
                     <img class="w-8 h-8 rounded-md" src="/assets/img/svg/226-united-states.svg" alt="">
@@ -297,7 +322,8 @@ Like: www.facebook.com/abhaytalreja.me
                           src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
                           alt="" aria-hidden="true" />
                         <div class="px-4 py-2 text-left">
-                          <div><a href="#" class="text-brand-dark font-bold text-xl hover:text-brand">John Doe</a></div>
+                          <div><a href="#" class="text-brand-dark font-bold text-xl hover:text-brand">John Doe</a>
+                          </div>
                           <div class="text-gray-400 text-lg">Application Developer</div>
                           <div class="text-gray-400 text-base hover:text-brand inline-flex justify-between">
                             <span class="pr-2">
