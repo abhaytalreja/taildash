@@ -30,13 +30,26 @@ function data() {
     toggleTopNavPages() {
       this.isTopNavPages = !this.isTopNavPages;
     },
+    hideTopNavPages() {
+      this.isTopNavPages = false;
+    },
     isUserPopUp: false,
     toggleUserPopUp() {
       this.isUserPopUp = !this.isUserPopUp;
     },
+    hideUserPopUp() {
+      this.isUserPopUp = false;
+    },
     isLanguagePopUp: false,
     toggleLanguagePopUp() {
       this.isLanguagePopUp = !this.isLanguagePopUp;
+    },
+    hideLanguagePopUp() {
+      this.isLanguagePopUp = false;
+    },
+    isSideMenu: false,
+    toggleSideMenu() {
+      this.isSideMenu = !this.isSideMenu;
     },
   };
 }
