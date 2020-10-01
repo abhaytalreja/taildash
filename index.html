@@ -41,7 +41,7 @@ Like: www.facebook.com/abhaytalreja.me
 
     <div class="flex flex-row">
       <!-- SIDE MENU -->
-      <div class="flex h-screen bg-grey-100 fixed top-0 left-0 z-50">
+      <div class="flex h-full bg-grey-100 fixed top-0 left-0 z-50">
         <aside class="overflow-y-auto bg-gray-100 md:block"
           :class="{'w-12 pt-2': hideForMiniMenu(), 'w-64': showForMiniMenu() || isSideMenu, 'hidden': !isSideMenu }"
           @click.away="closeSideMenu" @keydown.escape="closeSideMenu">
@@ -425,8 +425,8 @@ Like: www.facebook.com/abhaytalreja.me
       <!-- MAIN CONTENT -->
       <div class="mt-16 w-full" :class="{'md:pl-12': hideForMiniMenu(), 'md:pl-64': showForMiniMenu()}">
         <h1 class="text-brand-dark text-xl font-bold mx-8 mt-6">Dashboard</h1>
-        <div class="flex flex-col flex-wrap p-5">
-          <div class="flex flex-row">
+        <div class="flex flex-col flex-wrap p-5 h-full">
+          <div class="md:flex md:flex-row">
             <div class="m-3 bg-white rounded-md p-2">
               <div class="flex flex-col mb-4 px-4">
                 <h3 class="text-brand-dark text-lg font-bold">Weekly Commissions</h3>
@@ -560,7 +560,7 @@ Like: www.facebook.com/abhaytalreja.me
               </div>
             </div>
           </div>
-          <div class="flex flex-row">
+          <div class="md:flex flex-row">
             <div class="flex-1 m-2 bg-white rounded-md p-2">
               <div class="flex flex-row justify-between">
                 <h3 class="text-brand-dark text-lg font-bold">Social Traffic</h3>
@@ -730,7 +730,7 @@ Like: www.facebook.com/abhaytalreja.me
               </div>
             </div>
           </div>
-          <div class="flex flex-row">
+          <div class="md:flex flex-row">
             <div class="flex-1 m-2 bg-white rounded-md p-8">
               <div class="flex flex-row justify-between">
                 <h3 class="text-brand-dark text-lg font-bold">Action Needed</h3>
