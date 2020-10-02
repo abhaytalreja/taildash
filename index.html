@@ -425,9 +425,9 @@ Like: www.facebook.com/abhaytalreja.me
       <!-- MAIN CONTENT -->
       <div class="mt-16 w-full" :class="{'md:pl-12': hideForMiniMenu(), 'md:pl-64': showForMiniMenu()}">
         <h1 class="text-brand-dark text-xl font-bold mx-8 mt-6">Dashboard</h1>
-        <div class="flex flex-col flex-wrap p-5 h-full">
-          <div class="md:flex md:flex-row">
-            <div class="m-3 bg-white rounded-md p-2">
+        <div class="md:flex md:flex-1 md:flex-col md:flex-wrap p-5 h-full">
+          <div class="md:flex md:flex-wrap md:flex-row w-full">
+            <div class="md:w-1/4 m-3 bg-white rounded-md p-2">
               <div class="flex flex-col mb-4 px-4">
                 <h3 class="text-brand-dark text-lg font-bold">Weekly Commissions</h3>
                 <span class="text-gray-700 text-sm">by Most Sales in a Week</span>
@@ -436,7 +436,7 @@ Like: www.facebook.com/abhaytalreja.me
                 <canvas id="bar-chart"></canvas>
               </div>
             </div>
-            <div class="m-3 bg-gray-800 text-white rounded-md p-2">
+            <div class="md:w-1/4 m-3 bg-gray-800 text-white rounded-md p-2">
               <div class="flex flex-col mb-4 px-4">
                 <h3 class="text-lg font-bold">Sales By Month</h3>
                 <span class="text-sm">by Most Productive Month</span>
@@ -445,7 +445,7 @@ Like: www.facebook.com/abhaytalreja.me
                 <canvas id="line-chart"></canvas>
               </div>
             </div>
-            <div class="flex-1 m-2 bg-white rounded-md p-8">
+            <div class="md:w-1/4 md:flex-grow m-2 bg-white rounded-md p-8">
               <div class="flex flex-row justify-between">
                 <div class="flex flex-col">
                   <h3 class="text-brand-dark text-lg font-bold">Tasks Overview</h3>
@@ -560,8 +560,8 @@ Like: www.facebook.com/abhaytalreja.me
               </div>
             </div>
           </div>
-          <div class="md:flex flex-row">
-            <div class="flex-1 m-2 bg-white rounded-md p-2">
+          <div class="md:flex md:flex-wrap md:flex-row">
+            <div class="md:w-1/3 m-2 bg-white rounded-md p-2">
               <div class="flex flex-row justify-between">
                 <h3 class="text-brand-dark text-lg font-bold">Social Traffic</h3>
                 <button
@@ -720,7 +720,7 @@ Like: www.facebook.com/abhaytalreja.me
                 </table>
               </div>
             </div>
-            <div class="flex-1 m-3 bg-white rounded-md p-2">
+            <div class="md:w-1/4 md:flex-grow m-3 bg-white rounded-md p-2">
               <div class="flex flex-col mb-4 px-4">
                 <h3 class="text-brand-dark text-lg font-bold">Revenue</h3>
                 <span class="text-gray-700 text-sm">categorized by products (interactive)</span>
@@ -730,8 +730,8 @@ Like: www.facebook.com/abhaytalreja.me
               </div>
             </div>
           </div>
-          <div class="md:flex flex-row">
-            <div class="flex-1 m-2 bg-white rounded-md p-8">
+          <div class="md:flex md:flex-wrap md:flex-row">
+            <div class="md:w-1/3 m-2 bg-white rounded-md p-8">
               <div class="flex flex-row justify-between">
                 <h3 class="text-brand-dark text-lg font-bold">Action Needed</h3>
                 <button
@@ -743,7 +743,7 @@ Like: www.facebook.com/abhaytalreja.me
                 </button>
               </div>
             </div>
-            <div class="flex-1 m-2 bg-white rounded-md p-2">
+            <div class="md:w-1/4 md:flex-grow m-2 bg-white rounded-md p-2">
               <div class="p-4">
                 <h3 class="text-brand-dark text-lg font-bold">Agent Stats</h3>
                 <span class="text-gray-500">More than 400+ new members</span>
