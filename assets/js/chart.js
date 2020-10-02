@@ -8,7 +8,7 @@ window.chartColors = {
   orange: "rgb(255, 159, 64)",
   yellow: "rgb(255, 205, 86)",
   green: "rgb(75, 192, 192)",
-  blue: "rgb(54, 162, 235)",
+  blue: "rgb(126, 161, 255)",
   purple: "rgb(153, 102, 255)",
   grey: "rgb(201, 203, 207)",
 };
@@ -242,4 +242,58 @@ var config = {
 };
 
 var ctx = document.getElementById("dognut-chart").getContext("2d");
+window.myDoughnut = new Chart(ctx, config);
+
+var config = {
+  type: "doughnut",
+  data: {
+    datasets: [
+      {
+        label: "Sales",
+        percent: 68,
+        backgroundColor: [window.chartColors.blue],
+      },
+    ],
+  },
+  plugins: [
+    {
+      beforeInit: (chart) => {
+        const dataset = chart.data.datasets[0];
+        chart.data.labels = [dataset.label];
+        dataset.data = [dataset.percent, 100 - dataset.percent];
+      },
+    },
+    {
+      beforeDraw: (chart) => {
+        var width = chart.chart.width,
+          height = chart.chart.height,
+          ctx = chart.chart.ctx;
+        ctx.restore();
+        var fontSize = (height / 150).toFixed(2);
+        ctx.font = fontSize + "em sans-serif";
+        ctx.fillStyle = "#9b9b9b";
+        ctx.textBaseline = "middle";
+        var text = chart.data.datasets[0].percent + "%",
+          textX = Math.round((width - ctx.measureText(text).width) / 2),
+          textY = height / 2;
+        ctx.fillText(text, textX, textY);
+        ctx.save();
+      },
+    },
+  ],
+  options: {
+    maintainAspectRatio: false,
+    cutoutPercentage: 85,
+    circumference: Math.PI,
+    rotation: Math.PI,
+    legend: {
+      display: false,
+    },
+    tooltips: {
+      filter: (tooltipItem) => tooltipItem.index == 0,
+    },
+  },
+};
+
+var ctx = document.getElementById("progress-chart").getContext("2d");
 window.myDoughnut = new Chart(ctx, config);
